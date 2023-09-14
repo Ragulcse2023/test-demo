@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WhatsApp-Like Chat</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+
+</head>
+<body>
+  <div id="chat-container">
+    <div id="user-list">
+      <h2>Users</h2>
+      <ol id="users"></ol>
+    </div>
+    <div id="chat">
+      <div id="chat-header">
+        <h2>Chat</h2>
+      </div>
+      <ul id="messages"></ul>
+      <form id="message-form">
+        <input id="message-input" autocomplete="off" /><button>Send</button>
+      </form>
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function () {
+      const socket = io();
+      let username;
+
+      // Function to send a chat message
+      function sendMessage() {
+        const message = $('#message-input').val();
+        if (message) {
+          socket.emit('chat message', message);
+          $('#message-input').val('');
+        }
+      }
+
+      // Authenticate the user (replace this with a proper authentication mechanism)
+      function authenticateUser() {
+        username = prompt('Enter your username:');
+        if (username) {
+          socket.emit('authenticate', username);
+        }
+      }
+
+      // Handle new user connection
+      socket.on('user-connected', (user) => {
+        $('#users').append($('<li>').text(user));
+      });
+
+      // Handle user disconnection
+      socket.on('user-disconnected', (user) => {
+        $('#users li').filter(function () {
+          return $(this).text() === user;
+        }).remove();
+      });
+
+      // Handle chat message
+      socket.on('chat message', (data) => {
+        $('#messages').append($('<li>').text(`${data.username}: ${data.message}`));
+      });
+
+      // Event listener for the message form
+      $('#message-form').submit(function (e) {
+        e.preventDefault();
+        sendMessage();
+        return false;
+      });
+
+      // Authenticate the user
+      authenticateUser();
+    });
+  </script>
+</body>
+</html>

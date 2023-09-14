@@ -1,0 +1,131 @@
+/* Reset some default styles */
+body, h1, h2, ul, li, form {
+  margin: 0;
+  padding: 0;
+}
+
+/* Overall container styles */
+#chat-container {
+  display: flex;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #eacd12;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* User list styles */
+#user-list {
+  flex: 1;
+  padding: 10px;
+  background-color: #1af1e7;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+#user-list h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#users {
+  list-style:none;
+}
+
+#users li {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Chat styles */
+#chat {
+  font-size: 14px;
+  flex: 3;
+  margin-left: 20px;
+  padding: 10px;
+  background-color: #dceb0b;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+#chat h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#messages {
+  list-style:none;
+  padding: 0;
+  font-size: 32px;
+  background-color: rgb(252, 252, 250);
+  color: rgb(232, 101, 1);
+
+}
+
+#messages li {
+  font-size: 36px;
+  color: red;
+  margin-bottom: 10px;
+}
+
+/* Message input field and send button styles */
+#message-form {
+  display: flex;
+  align-items: center;
+}
+
+#message-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  border-radius: 5px;
+  font-size: 14px; /* Change the font size for the message input field */
+  color: #000a0d; /* Change the text color for the message input field */
+}
+
+#message-input:focus {
+  outline: none;
+}
+
+#message-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+#message-form button:focus {
+  outline: none;
+}/* Font size and color for all elements */
+body, h1, h2, ul, li, form, #users li, #messages li {
+  font-size: 16px; /* Change the font size to your preference */
+  color: #333; /* Change the text color to your preference */
+}
+
+/* Font size and color for specific elements */
+h2 {
+  font-size: 18px; /* Change the font size for h2 elements */
+  color: #007bff; /* Change the text color for h2 elements */
+}
+
+/* Chat header styles */
+#chat h2 {
+  font-size: 20px; /* Change the font size for chat header h2 */
+  color: #007bff; /* Change the text color for chat header h2 */
+}
+
+/* Send button styles */
+#message-form button {
+  font-size: 14px; /* Change the font size for the send button */
+  background-color: #007bff; /* Change the background color for the send button */
+  color: #fff; /* Change the text color for the send button */
+}
